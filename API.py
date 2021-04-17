@@ -60,7 +60,6 @@ class DB():
         return(error, ids, OTV[0][1])
 
 
-
 @application.route('/', methods=['GET', 'POST'])
 def index():
     return('API from Sochi :}')
