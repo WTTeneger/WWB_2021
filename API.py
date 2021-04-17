@@ -462,10 +462,10 @@ def getdateuser():
             try:
                 data = ''
                 if(int(request.form['role']) == 1):
-                    data = DB.GET(f'SELECT * FROM employer where id = {request.form["who_is_connect"]}')[0]
+                    data = DB.GET(f'SELECT * FROM student where id = {request.form["who_is_connect"]}')[0]
                     
                 elif(int(request.form['role']) == 2):
-                    data = DB.GET(f'SELECT * FROM student where id = {request.form["who_is_connect"]}')[0]
+                    data = DB.GET(f'SELECT * FROM employer where id = {request.form["who_is_connect"]}')[0]
                     
                 elif(int(request.form['role']) == 3):
                     data = DB.GET(f'SELECT * FROM establishment where id = {request.form["who_is_connect"]}')[0]           
