@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+</body>
+<script src='jquery.js'></script>
+
+<!-- Проверка логина -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/checkauth'
+    $.ajax({
+        type: "POST",
+        url: APs,
+
+        data: {
+            'login': 'qwse_comp',
+            'password': 'qwe',
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            localStorage['user'] = JSON.stringify({
+                'id_u': data['id_u'],
+                'role': data['role']
+            })
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+<!-- Создание студента -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/createaccount/1'
+    $.ajax({
+        type: "POST",
+        url: APs,
+
+        data: {
+            'login': 'qwse',
+            'password': 'qwe',
+            'name': 'Имя',
+            'last_name': 'фамилия',
+            'faculty': 'факультет',
+            'educational': JSON.parse(localStorage['user'])['id_u'],
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+<!-- Создание заказчика -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/createaccount/2'
+    $.ajax({
+        type: "POST",
+        url: APs,
+
+        data: {
+            'login': 'qwse_comp',
+            'password': 'qwe',
+            'company_name': 'название компании',
+            'direction': 'Направление',
+            'count_staff': 55,
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+<!-- Создание учреждения -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/createaccount/3'
+    $.ajax({
+        type: "POST",
+        url: APs,
+
+        data: {
+            'login': 'qwse_e',
+            'password': 'qwe',
+            'location': 2,
+            'title': 'название учебного заведения',
+            'type': 'тип учреждения (Колледж, универ, техникум, тд)',
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+<!-- Получение location -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/getlocation'
+    $.ajax({
+        type: "POST",
+        url: APs,
+
+        data: {
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+
+<!-- Отправка заявки в учреждения -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/findastudent'
+    massSkils = [2, 1]
+    console.log(JSON.stringify(massSkils));
+    $.ajax({
+        type: "POST",
+        url: APs,
+        data: {
+            'info': 'текст о кейсе',
+            'location': 2,
+            'skills': JSON.stringify(massSkils),
+            'from_employer': JSON.parse(localStorage['user'])['id_u'],
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+
+<!-- Получать уведомления -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/whenconnecting'
+    $.ajax({
+        type: "POST",
+        url: APs,
+        data: {
+            //'role': JSON.parse(localStorage['user'])['role'],
+            'who_is_connect': JSON.parse(localStorage['user'])['id_u'],
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
+
+
+</html>
