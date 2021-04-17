@@ -60,6 +60,7 @@ class DB():
         return(error, ids, OTV[0][1])
 
 
+
 @application.route('/', methods=['GET', 'POST'])
 def index():
     return('API from Sochi :}')
@@ -73,7 +74,7 @@ def API_getSkills():
         RZ = (int(TN) - int(TM))
         if(RZ <= 10 and RZ >= -5):
         
-            if request.method == "GET":
+            if request.method == "POST":
                 req = {}
                 # Na =  DB.GET('SELECT groupSkills.Name, groupSkills.id, skills.name FROM `groupSkills`, `skills` WHERE groupSkills.id = skills.fromGroup')
                 sqlReq = DB.GET('SELECT groupSkills.Name, groupSkills.id, skills.name, skills.id FROM `groupSkills`, `skills` WHERE groupSkills.id = skills.fromGroup')
@@ -121,7 +122,7 @@ def API_getlocation():
             
             for el in range(0, len(sqlReq)):
                 try:
-                req[el] = {
+                    req[el] = {
                         'id':sqlReq[el][0],
                         'title': str(sqlReq[el][1])
                     }
@@ -447,6 +448,37 @@ def whenconnecting():
         return('API from Sochi :}')
     except:
         return('API critical error')
+
+
+@application.route('/API/getdateuser', methods=['GET', 'POST'])
+def getdateuser():
+    try:
+        print(request.form)
+        TN = str(time.time())
+        TN = TN[:TN.find('.')]
+        TM = str(request.form['timeN'])[0:-3]
+        RZ = (int(TN) - int(TM))
+        if(RZ <= 10 and RZ >= -5):
+            try:
+                data = ''
+                if(int(request.form['role']) == 1):
+                    data = DB.GET(f'SELECT * FROM employer where id = {request.form["who_is_connect"]}')[0]
+                    
+                elif(int(request.form['role']) == 2):
+                    data = DB.GET(f'SELECT * FROM student where id = {request.form["who_is_connect"]}')[0]
+                    
+                elif(int(request.form['role']) == 3):
+                    data = DB.GET(f'SELECT * FROM establishment where id = {request.form["who_is_connect"]}')[0]           
+                return jsonify(data)
+            
+            except:
+                return('API critical error')
+        
+        return('API from Sochi :}')
+    except:
+        return('API critical error')
+
+
 
 @application.errorhandler(404)
 def page_not_found(e):

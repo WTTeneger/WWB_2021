@@ -163,5 +163,22 @@
     });
 </script> -->
 
+<!-- получаем данные юзера -->
+<!-- <script>
+    APs = 'http://localhost:8001/API/getdateuser'
+    $.ajax({
+        type: "POST",
+        url: APs,
+        data: {
+            'role': JSON.parse(localStorage['user'])['role'],
+            'who_is_connect': JSON.parse(localStorage['user'])['id_u'],
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script> -->
 
 </html>

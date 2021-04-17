@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script src='jquery.js'></script>
+</body>
+<script>
+    APs = 'http://37.140.192.16:8001/API/createaccount/1'
+    $.ajax({
+        type: "POST",
+        url: APs,
+
+        data: {
+            'login': 'qwse',
+            'password': 'qwe',
+            'name': 'Имя',
+            'last_name': 'фамилия',
+            'faculty': 'факультет',
+            'educational': JSON.parse(localStorage['user'])['id_u'],
+            'timeN': Date.now()
+        },
+        async: false,
+        success: function(data) {
+            console.log('Ответ от API - ', data);
+        }
+    });
+</script>
+
+</html>
